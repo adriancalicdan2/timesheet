@@ -234,7 +234,10 @@
   </div>
 
   <script>
-    const BACKEND_URL = "https://lou-timesheet.netlify.app/";
+    const BACKEND_URL = process.env.NODE_ENV === 'production' 
+  ? "https://your-backend-url.com" // Replace with your actual production backend URL
+  : "http://localhost:3000"; // Local URL for development
+
 
     function updateDateTime() {
       const now = new Date();

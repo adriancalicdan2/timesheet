@@ -8,11 +8,12 @@ const app = express();
 const port = 3000;
 
 // Enable CORS for specific origin
+const NETLIFY_APP_URL = "https://your-app-name.netlify.app"; // Replace with your Netlify domain
 app.use(
   cors({
-    origin: "http://127.0.0.1:5501", // Allow requests from this origin
-    methods: "GET,POST", // Allow only GET and POST requests
-    credentials: true, // Allow cookies and credentials
+    origin: [NETLIFY_APP_URL, "http://127.0.0.1:5501"], // Allow both local and Netlify domains
+    methods: "GET,POST",
+    credentials: true,
   })
 );
 
